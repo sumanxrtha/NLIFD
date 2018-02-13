@@ -32,18 +32,10 @@ public class QueryPanelController implements Initializable {
     @FXML
     private JFXProgressBar progress;
 
+    private String question;
 
     public void executeAction(ActionEvent actionEvent) {
-        progress.setVisible(true);
-        PauseTransition pt = new PauseTransition();
-        pt.setDuration(Duration.seconds(5));
-        pt.setOnFinished(event -> executingProcess());
-        pt.play();
-    }
-
-    private void executingProcess() {
-        progress.setVisible(true);
-        String question = inputQuery.getText();
+        question = inputQuery.getText();
         if (question.equals("")) {
 //            System.out.println("don't empty");
             progress.setVisible(false);
@@ -52,7 +44,18 @@ public class QueryPanelController implements Initializable {
             alert.setTitle("Warning");
             alert.setContentText("Enter your text or question");
             alert.show();
+        } else {
+            progress.setVisible(true);
+            PauseTransition pt = new PauseTransition();
+            pt.setDuration(Duration.seconds(4));
+            pt.setOnFinished(event -> executingProcess());
+            pt.play();
         }
+    }
+
+    private void executingProcess() {
+        progress.setVisible(false);
+
         System.out.println(question);
 
         // sending question to dependency parser api to genearte world list using stanford api
