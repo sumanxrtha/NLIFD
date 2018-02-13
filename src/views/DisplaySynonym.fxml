@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.DisplaySynonymController">
+   <children>
+      <TableView fx:id="listSynonym" editable="true" layoutX="29.0" layoutY="34.0" prefHeight="343.0" prefWidth="538.0">
+        <columns>
+          <TableColumn fx:id="sname" prefWidth="181.0" text="Names" />
+          <TableColumn fx:id="scolumn" prefWidth="180.0" text="Columns" />
+            <TableColumn fx:id="stable" prefWidth="176.0" text="Tables" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,16 @@
+.parent{
+    -fx-background-color: #323754;
+
+}
+.header{
+    -fx-background-color: #323754;
+}
+.headerBtns{
+    -fx-background-color: transparent;
+}
+.headerBtns:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: #323754;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
