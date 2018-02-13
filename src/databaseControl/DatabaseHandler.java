@@ -1,13 +1,9 @@
 package databaseControl;
 
 import javafx.scene.control.Alert;
-
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DatabaseHandler {
-
-
 
     public static Connection GetDatabaseConnection() {
         Connection connection = null;
@@ -29,6 +25,7 @@ public class DatabaseHandler {
             e.getMessage();
 
         } catch (SQLException e) {
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Database Connection Error");
             alert.setHeaderText("Database cannot connection in your system");
@@ -59,7 +56,7 @@ public class DatabaseHandler {
         Connection connection = GetDatabaseConnection();
 //        String checkQuery = "select * from registeredUser where user = ' "+uname+" ' and pass = ' "+pass+" ' ";
         String checkQuery = "select *from registeredUser where user = ? and pass = ? ";
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         boolean status = false; //initially false
 
         try {

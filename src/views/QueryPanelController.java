@@ -2,21 +2,25 @@ package views;
 
 import Application.DependencyParserAPI;
 
-import Application.Synonym;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.JFXTextField;
-import databaseControl.GetAllSynonyms;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class QueryPanelController {
+public class QueryPanelController implements Initializable {
     @FXML
     private JFXTextField inputQuery;
     @FXML
@@ -31,14 +35,28 @@ public class QueryPanelController {
 
     public void executeAction(ActionEvent actionEvent) {
         progress.setVisible(true);
+        PauseTransition pt = new PauseTransition();
+        pt.setDuration(Duration.seconds(5));
+        pt.setOnFinished(event -> executingProcess());
+        pt.play();
+    }
 
+    private void executingProcess() {
+        progress.setVisible(true);
         String question = inputQuery.getText();
-
-
+        if (question.equals("")) {
+//            System.out.println("don't empty");
+            progress.setVisible(false);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setTitle("Warning");
+            alert.setContentText("Enter your text or question");
+            alert.show();
+        }
         System.out.println(question);
 
         // sending question to dependency parser api to genearte world list using stanford api
-        DependencyParserAPI.DependencyGeneration(question);
+//        DependencyParserAPI.DependencyGeneration(question);
 
         System.out.println(DependencyParserAPI.DependencyGeneration(question));
 
@@ -65,5 +83,10 @@ public class QueryPanelController {
         dashboardStage.show();
         dashboardStage.setResizable(false);
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        progress.setVisible(false);
     }
 }

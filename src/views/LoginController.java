@@ -31,12 +31,13 @@ public class LoginController implements Initializable {
     private JFXSpinner spinner;
 
     @FXML
-    public void setLoginButton(ActionEvent actionEvent) throws IOException {
+    public void setLoginButton(ActionEvent actionEvent) {
 
         spinner.setVisible(true);
         PauseTransition pauseTransition = new PauseTransition();
-        pauseTransition.setDuration(Duration.seconds(5)); // 5 sec duration for spinner
+        pauseTransition.setDuration(Duration.seconds(3)); // 5 sec duration for spinner
         pauseTransition.setOnFinished(event -> {
+//            DatabaseHandler.GetDatabaseConnection();
             completeLogin(); // verify login
         });
         pauseTransition.play();
@@ -45,8 +46,11 @@ public class LoginController implements Initializable {
     private void completeLogin() {
         String uname = username.getText();
         String pass = password.getText();
-        if (DatabaseHandler.CheckLoginUser(uname, pass)) {
-                loginButton.getScene().getWindow().hide();
+
+//        boolean status = DatabaseHandler.CheckLoginUser(uname, pass);  //return true if correct
+        if (DatabaseHandler.CheckLoginUser(uname, pass)) {  // if true
+
+            loginButton.getScene().getWindow().hide();
             try {
             spinner.setVisible(true);
                 Stage dashboardStage = new Stage();
@@ -81,7 +85,6 @@ public class LoginController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         spinner.setVisible(false);
     }
-
 
 //    public void homeScreen() throws IOException {
 //
