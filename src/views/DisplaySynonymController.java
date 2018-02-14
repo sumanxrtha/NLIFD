@@ -1,75 +1,68 @@
 package views;
 
+import Application.Synonym;
 import databaseControl.DatabaseHandler;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class DisplaySynonymController extends Application {
-    @FXML
-    private ObservableList<ObservableList> data;
+public class DisplaySynonymController implements Initializable {
+
+    private ObservableList<Synonym> data;
+
+    public static final String GET_SYNONYM_QUERY = "SELECT sname,scolumn,stable from synonym";
+
+    Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
 
     @FXML
-    private TableView listSynonym = new TableView();
+    private TableView<Synonym> syTable;
+    @FXML
+    private TableColumn<?, ?> sname;
+    @FXML
+    private TableColumn<?, ?> scolumn;
+
+    @FXML
+    private TableColumn<?,?> stable;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-
-        listSynonym = new TableView();
-        buildData();
-//        Scene scene = new Scene(listSynonym);
+    public void initialize(URL location, ResourceBundle resources) {
+        con = DatabaseHandler.GetDatabaseConnection();
+        data = FXCollections.observableArrayList();
+        setCellTable();
+        LoadSynonymFromDatabase();
     }
 
+    private void setCellTable() {
+        sname.setCellValueFactory(new PropertyValueFactory<>("syName"));
+        scolumn.setCellValueFactory(new PropertyValueFactory<>("syColumn"));
+        stable.setCellValueFactory(new PropertyValueFactory<>("syTable"));
+    }
 
-
-    public void buildData() {
-
-        data = FXCollections.observableArrayList();
+    private void LoadSynonymFromDatabase() {
 
         try {
-            Connection conn = DatabaseHandler.GetDatabaseConnection();
-            PreparedStatement ps = conn.prepareStatement("Select sname,scolumn,stable from synonym");
-            ResultSet rs = ps.executeQuery();
-
+            ps = con.prepareStatement(GET_SYNONYM_QUERY);
+            rs = ps.executeQuery();
             while (rs.next()) {
-                String synonymName = rs.getString("sname");
-                String synonymColumn = rs.getString("scolumn");
-                String synonymTable = rs.getString("stable");
+                data.add(new Synonym(rs.getString("sname"),rs.getString("scolumn"), rs.getString("stable")));
 
-                ObservableList<String> row = FXCollections.observableArrayList();
-
-                for (int i=1; i<=rs.getMetaData().getColumnCount(); i++) {
-                    row.add(rs.getString(i));
-                }
-                data.add(row);
-                System.out.println("Data: " +data);
             }
-            listSynonym.setItems(data);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            e.getMessage();
-            System.out.println("error on building data from database");
+        } catch (SQLException sq) {
+            sq.printStackTrace();
         }
-
-        TableColumn sName = new TableColumn("Names");
-        sName.setMinWidth(200);
-TableColumn sColumn = new TableColumn("Columns");
-        sColumn.setMinWidth(200);
-TableColumn sTable = new TableColumn("Tables");
-        sTable.setMinWidth(200);
-
-        listSynonym.getColumns().addAll(sName,sColumn,sTable);
-        System.out.println("table: " + listSynonym);
-
+        syTable.setItems(data);
     }
 }

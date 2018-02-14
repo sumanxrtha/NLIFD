@@ -1,50 +1,38 @@
 package Application;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class Synonym {
 
-    private final SimpleStringProperty sname;
-    private final SimpleStringProperty scolumn;
-    private final SimpleStringProperty stable;
+    private String syName;
+    private String syColumn;
+    private String syTable;
 
-    public Synonym(String syname, String sycolumn, String sytable) {
-        this.sname = new SimpleStringProperty(syname);
-        this.scolumn = new SimpleStringProperty(sycolumn);
-        this.stable = new SimpleStringProperty(sytable);
+    public Synonym(String syName, String syColumn, String syTable) {
+        this.syName = syName;
+        this.syColumn = syColumn;
+        this.syTable = syTable;
     }
 
-    public String getSname() {
-        return sname.get();
+    public String getSyName() {
+        return syName;
     }
 
-    public void setSname(String syname) {
-        sname.set(syname);
+    public void setSyName(String syName) {
+        this.syName = syName;
     }
 
-    public String getScolumn() {
-        return scolumn.get();
+    public String getSyColumn() {
+        return syColumn;
     }
 
-    public void setScolumn(String sycolumn) {
-        scolumn.set(sycolumn);
+    public void setSyColumn(String syColumn) {
+        this.syColumn = syColumn;
     }
 
-    public String getStable() {
-        return stable.get();
+    public String getSyTable() {
+        return syTable;
     }
 
-    public void setStable(String sytable) {
-//        this.stable = stable;
-        stable.set(sytable);
-    }
-
-    @Override
-    public String toString() {
-        return "Synonym{" +
-                "sname='" + sname + '\'' +
-                ", scolumn='" + scolumn + '\'' +
-                ", stable='" + stable + '\'' +
-                '}';
+    public void setSyTable(String syTable) {
+        this.syTable = syTable;
     }
 }
