@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.DisplaySynonymController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DisplaySynonymController">
    <children>
       <TableView fx:id="syTable" editable="true" layoutX="29.0" layoutY="34.0" prefHeight="343.0" prefWidth="538.0">
         <columns>

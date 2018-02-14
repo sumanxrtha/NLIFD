@@ -1,4 +1,4 @@
-package views;
+package controller;
 
 import Application.Synonym;
 import databaseControl.DatabaseHandler;
@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class DisplaySynonymController implements Initializable {
 
-    private ObservableList<Synonym> data;
+    private ObservableList<Synonym> sdata;
 
     public static final String GET_SYNONYM_QUERY = "SELECT sname,scolumn,stable from synonym";
 
@@ -40,7 +40,7 @@ public class DisplaySynonymController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         con = DatabaseHandler.GetDatabaseConnection();
-        data = FXCollections.observableArrayList();
+        sdata = FXCollections.observableArrayList();
         setCellTable();
         LoadSynonymFromDatabase();
     }
@@ -57,12 +57,13 @@ public class DisplaySynonymController implements Initializable {
             ps = con.prepareStatement(GET_SYNONYM_QUERY);
             rs = ps.executeQuery();
             while (rs.next()) {
-                data.add(new Synonym(rs.getString("sname"),rs.getString("scolumn"), rs.getString("stable")));
+                sdata.add(new Synonym(rs.getString("sname"),rs.getString("scolumn"), rs.getString("stable")));
 
             }
         } catch (SQLException sq) {
             sq.printStackTrace();
         }
-        syTable.setItems(data);
+        syTable.setItems(sdata);
+        DatabaseHandler.CloseConnection(con);
     }
 }

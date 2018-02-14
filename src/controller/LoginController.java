@@ -1,4 +1,4 @@
-package views;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -54,7 +54,7 @@ public class LoginController implements Initializable {
             try {
             spinner.setVisible(true);
                 Stage dashboardStage = new Stage();
-                Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard.fxml"));
                 Scene scene = new Scene(root);
                 dashboardStage.setScene(scene);
                 dashboardStage.setTitle("Home - NLIFD");

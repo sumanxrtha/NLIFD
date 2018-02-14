@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="491.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.DashboardController">
+<AnchorPane prefHeight="491.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
    <children>
       <AnchorPane fx:id="addFunctions" layoutX="503.0" layoutY="67.0">
          <children>

@@ -1,4 +1,4 @@
-package views;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
@@ -32,7 +32,7 @@ public class DashboardController {
 
     public void addFunctionsAction(MouseEvent mouseEvent) throws IOException {
         Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("addFunction.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/addFunction.fxml"));
         Scene scene = new Scene(root);
         dashboardStage.setScene(scene);
         dashboardStage.setTitle("Add Functions");
@@ -43,7 +43,7 @@ public class DashboardController {
 
         viewFunctions.getScene().getWindow().hide();
         Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("viewFunction.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/DisplayFunction.fxml"));
         Scene scene = new Scene(root);
         dashboardStage.setScene(scene);
         dashboardStage.setTitle("List Functions");
@@ -56,7 +56,7 @@ public class DashboardController {
 
         queryGeneration.getScene().getWindow().hide();
         Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("QueryPanel.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/QueryPanel.fxml"));
         Scene scene = new Scene(root);
         dashboardStage.setScene(scene);
         dashboardStage.setTitle("Query Panel");
@@ -67,7 +67,7 @@ public class DashboardController {
 
     public void addSynonymsAction(MouseEvent mouseEvent) throws IOException {
         Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("addSynonym.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/addSynonym.fxml"));
         Scene scene = new Scene(root);
         dashboardStage.setScene(scene);
         dashboardStage.setTitle("Add Synonym");
@@ -79,7 +79,7 @@ public class DashboardController {
 
         viewSynonyms.getScene().getWindow().hide();
         Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("DisplaySynonym.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/DisplaySynonym.fxml"));
         Scene scene = new Scene(root);
         dashboardStage.setScene(scene);
         dashboardStage.setTitle("List Synonyms");
@@ -97,7 +97,7 @@ public class DashboardController {
     public void logoutBtnAction(ActionEvent actionEvent) throws Exception {
 
         logoutBtn.getScene().getWindow().hide();         // back to login page
-        Scene login = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+        Scene login = new Scene(FXMLLoader.load(getClass().getResource("../views/Login.fxml")));
         Stage openLogin = new Stage();
         openLogin.setScene(login);
         openLogin.show();
