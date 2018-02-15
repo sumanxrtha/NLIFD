@@ -12,9 +12,10 @@
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="284.0" prefWidth="294.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addFunctionController">
    <children>
-      <VBox prefHeight="256.0" prefWidth="404.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="210.0" prefWidth="294.0" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXTextField fx:id="synonymFunction" labelFloat="true" promptText="Synonym for function/operator">
+            <JFXTextField fx:id="fName" labelFloat="true" promptText="Synonym for function/operator">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
                </VBox.margin>
@@ -32,7 +33,7 @@
             </Label>
             <HBox prefHeight="23.0" prefWidth="264.0">
                <children>
-                  <JFXRadioButton mnemonicParsing="false" text="SELECT">
+                  <JFXRadioButton fx:id="selectType" mnemonicParsing="false" text="SELECT">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -40,7 +41,7 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </JFXRadioButton>
-                  <JFXRadioButton mnemonicParsing="false" text="WHERE">
+                  <JFXRadioButton fx:id="whereType" mnemonicParsing="false" text="WHERE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -53,7 +54,8 @@
                   <Insets left="15.0" right="15.0" top="8.0" />
                </VBox.margin>
             </HBox>
-            <JFXTextField fx:id="columnSymbol" labelFloat="true" layoutX="20.0" layoutY="30.0" promptText="Appropriate Function/operator">
+            <JFXTextField fx:id="fOperator" labelFloat="true" layoutX="20.0" layoutY="30.0"
+                          promptText="Appropriate Function/operator">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="20.0" />
                </VBox.margin>
@@ -69,25 +71,19 @@
                   <Insets left="25.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <HBox prefHeight="47.0" prefWidth="404.0" stylesheets="@../resources/ButtonStyle.css">
-               <children>
-                  <JFXButton fx:id="addFuncionButton" prefHeight="66.0" prefWidth="250.0" stylesheets="@../resources/ButtonStyle.css" text="Add">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></JFXButton>
-                  <JFXButton fx:id="cancelButton" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="231.0" stylesheets="@../resources/ButtonStyle.css" text="Cancel">
-                     <font>
-                        <Font size="16.0" />
-                     </font></JFXButton>
-               </children>
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="20.0" />
-               </VBox.margin>
-            </HBox>
          </children>
       </VBox>
+      <JFXButton layoutX="14.0" layoutY="221.0" onAction="#setAddFunctionButton" prefHeight="49.0" prefWidth="125.0"
+                 stylesheets="@../resources/ButtonStyle.css" text="Add">
+         <font>
+            <Font size="18.0"/>
+         </font>
+      </JFXButton>
+      <JFXButton cancelButton="true" layoutX="155.0" layoutY="221.0" onAction="#setResetBtn" prefHeight="49.0"
+                 prefWidth="125.0" style="-fx-border-color: blue; -fx-border-radius: 10;" text="Reset">
+         <font>
+            <Font size="18.0"/>
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

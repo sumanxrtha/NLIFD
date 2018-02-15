@@ -5,17 +5,23 @@ import java.sql.*;
 
 public class DatabaseHandler {
 
+    public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    public static final String DB_NAME = "finalproject";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
+    public static final String DB_USER = "root";
+    public static final String DB_PASS = "sujan";
+
+//    public static final String LOGIN_USER_CHECK_QUERY = "select *from registeredUser where user = ? and pass = ?";
+
     public static Connection GetDatabaseConnection() {
         Connection connection = null;
 //    Connection connection;
 
-     String dbUrl = "jdbc:mysql://localhost:3306/finalproject";
-        String user = "root";
-       String pass = "sujan";
         try {
 //            driver setup for database
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbUrl, user, pass);
+//            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(DB_DRIVER);
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
 //            System.out.println("connection successful");
 
@@ -55,7 +61,7 @@ public class DatabaseHandler {
     public static boolean CheckLoginUser(String uname, String pass) {
         Connection connection = GetDatabaseConnection();
 //        String checkQuery = "select * from registeredUser where user = ' "+uname+" ' and pass = ' "+pass+" ' ";
-        String checkQuery = "select *from registeredUser where user = ? and pass = ? ";
+        final String checkQuery = "select *from registeredUser where user = ? and pass = ? ";
         PreparedStatement preparedStatement;
         boolean status = false; //initially false
 

@@ -24,7 +24,7 @@ public class addSynonymController {
     private JFXButton resetButton;
 
 
-    public void setAddSynonymButton(javafx.event.ActionEvent actionEvent) {
+    public void setAddSynonymButton(ActionEvent actionEvent) {
 
 //        addSynonym.getScene().getWindow().show();
 
@@ -32,9 +32,9 @@ public class addSynonymController {
         String tName = tableName.getText();
         String cName = columnName.getText();
         // sabai value lai synonym database ko form ma raakney !!
-        String getAll = "'"+sColumnName+ " '";
+//        String getAll = "'"+sColumnName+ " '";
 
-        if (DBOperation.insert("synonym (sname,scolumn, stable)",getAll)) {
+        if (DBOperation.insert("synonym (sname,scolumn, stable)", sColumnName, cName, tName)) {
 //            addSynonym.getScene().getWindow().isShowing();
 
 //            System.out.println("done")
