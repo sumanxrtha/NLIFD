@@ -5,6 +5,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -61,7 +62,10 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="80.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="77.0" fitWidth="89.0" layoutX="62.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Desktop/query.png" />
+                     </image></ImageView>
                </children>
                <opaqueInsets>
                   <Insets left="100.0" right="100.0" />

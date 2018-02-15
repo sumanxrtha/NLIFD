@@ -1,7 +1,6 @@
 package controller;
 
 import Application.Function;
-import Application.Synonym;
 import databaseControl.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -4,6 +4,7 @@ import Application.Synonym;
 import databaseControl.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -65,5 +66,14 @@ public class DisplaySynonymController implements Initializable {
         }
         syTable.setItems(sdata);
         DatabaseHandler.CloseConnection(con);
+    }
+
+    public void exitBtnAction(ActionEvent actionEvent) {
+    }
+
+    public void homeBtnAction(ActionEvent actionEvent) {
+    }
+
+    public void addBtnAction(ActionEvent actionEvent) {
     }
 }

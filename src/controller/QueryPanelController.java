@@ -79,7 +79,7 @@ public class QueryPanelController implements Initializable {
         homeButton.getScene().getWindow().hide();
 
         Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard.fxml"));
         Scene scene = new Scene(root);
         dashboardStage.setScene(scene);
         dashboardStage.setTitle("Home | Natural Language Interface For Database");
