@@ -2,8 +2,10 @@ package controller;
 
 import Application.Function;
 import databaseControl.DatabaseHandler;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -64,5 +66,17 @@ public class DisplayFunctionController implements Initializable {
         }
         funTable.setItems(fdata);
         DatabaseHandler.CloseConnection(con);
+    }
+
+    public void exitBtnAction(ActionEvent actionEvent) {
+        Platform.exit();
+
+    }
+
+    public void homeBtnAction(ActionEvent actionEvent) {
+
+    }
+
+    public void addBtnAction(ActionEvent actionEvent) {
     }
 }

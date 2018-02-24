@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DisplayFunctionController">
+<AnchorPane prefHeight="449.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.152"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DisplayFunctionController">
    <children>
-      <TableView fx:id="funTable" layoutX="24.0" layoutY="28.0" prefHeight="347.0" prefWidth="545.0">
+       <TableView fx:id="funTable" editable="true" layoutX="19.0" layoutY="40.0" prefHeight="343.0" prefWidth="563.0">
         <columns>
-          <TableColumn fx:id="funName" prefWidth="170.0" text="Function Name" />
-          <TableColumn fx:id="funOperator" minWidth="0.0" prefWidth="187.0" text="Operator" />
-            <TableColumn fx:id="funType" minWidth="0.0" prefWidth="187.0" text="Type" />
+            <TableColumn fx:id="funName" prefWidth="181.0" text="Names"/>
+            <TableColumn fx:id="funOperator" prefWidth="180.0" text="Operator"/>
+            <TableColumn fx:id="funType" prefWidth="199.0" text="Type"/>
         </columns>
       </TableView>
+       <JFXButton fx:id="exitBtn" layoutX="458.0" layoutY="397.0" onAction="#exitBtnAction" prefHeight="36.0"
+                  prefWidth="93.0" style="-fx-background-color: green;" text="Exit" textFill="WHITE">
+           <font>
+               <Font size="17.0"/>
+           </font>
+       </JFXButton>
+       <JFXButton fx:id="homeBtn" layoutX="316.0" layoutY="397.0" onAction="#homeBtnAction" prefHeight="36.0"
+                  prefWidth="93.0" stylesheets="@../resources/ButtonStyle.css" text="Home" textFill="WHITE">
+           <font>
+               <Font size="17.0"/>
+           </font>
+       </JFXButton>
+       <JFXButton fx:id="addButton" layoutX="159.0" layoutY="397.0" onAction="#addBtnAction" prefHeight="36.0"
+                  prefWidth="103.0" stylesheets="@../resources/ButtonStyle.css" text="Add New" textFill="WHITE">
+           <font>
+               <Font size="17.0"/>
+           </font>
+       </JFXButton>
    </children>
 </AnchorPane>

@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DBOperation {
     //
-    // applying below trick for insertion of synonyms and functions on database table in one code
+    // applying below trick for insertion of synonyms and functions on database table in one function
     /* insert into synonym table for field1=sname, field2=scolumn, field3=stable continuously
      * similarly for function table for field1=funname, field2=operator, field3=type(either 'select' or 'where'
      * clause continuously.
