@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import databaseControl.DBOperation;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -45,7 +46,6 @@ public class addFunctionController implements Initializable {
 
         final String DB_FUNCTION_TABLE = "function (fname,foperator,ftype)";  //function table in database
 
-
         if (DBOperation.insert(DB_FUNCTION_TABLE, fNameInput, fOperatorInput, typeOption)) {
 //            addSynonym.getScene().getWindow().isShowing();
 
@@ -56,6 +56,8 @@ public class addFunctionController implements Initializable {
             alert.setTitle("function insertion done");
             alert.show();
 
+            Platform.exit(); // close scene only when message popup
+
         } else {
             Alert falert = new Alert(Alert.AlertType.WARNING);
             falert.setHeaderText("Function input have some values");
@@ -65,6 +67,8 @@ public class addFunctionController implements Initializable {
             fName.setText("");
             fOperator.setText("");
         }
+
+//        Platform.exit();
 
     }
 

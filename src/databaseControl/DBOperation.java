@@ -9,6 +9,7 @@ public class DBOperation {
      * similarly for function table for field1=funname, field2=operator, field3=type(either 'select' or 'where'
      * clause continuously.
      * */
+
     public static boolean insert(String tableName, String field1, String field2, String field3) {
 
         Connection connection = DatabaseHandler.GetDatabaseConnection();
@@ -19,20 +20,16 @@ public class DBOperation {
 
         try {
             preparedStatement = connection.prepareStatement("INSERT into ? VALUES (?,?,?)");
-            preparedStatement.executeUpdate();
+//            preparedStatement.executeUpdate();
 //            statement = connection.createStatement();
-//
+
             preparedStatement.setString(1, tableName);
             preparedStatement.setString(2, field1);
             preparedStatement.setString(3, field2);
             preparedStatement.setString(4, field3);
-            int i = preparedStatement.executeUpdate();
-//            status = preparedStatement.execute();
-//            preparedStatement.close();
-//            status = true;
-            if (i != 0) {
-                status = true;
-            }
+
+            status = preparedStatement.execute();
+            preparedStatement.close();
 
             // checking incoming content for database
             System.out.println(tableName + " and " + field1 + " and " + field2 + " and " + field3);
@@ -66,7 +63,8 @@ public class DBOperation {
         }
         return status;
     }
-// deleleting row from table
+
+    // deleleting row from table
     public static boolean DeleteRow(String table, String url) {
         boolean status = false;
         Connection connection = DatabaseHandler.GetDatabaseConnection();

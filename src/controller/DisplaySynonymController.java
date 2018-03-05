@@ -1,15 +1,22 @@
 package controller;
 
+import Application.GotoHome;
 import Application.Synonym;
+import com.jfoenix.controls.JFXButton;
 import databaseControl.DatabaseHandler;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -21,6 +28,12 @@ import java.util.ResourceBundle;
 public class DisplaySynonymController implements Initializable {
 
     private ObservableList<Synonym> sdata;
+
+    @FXML
+    private JFXButton homeBtn;
+
+    @FXML
+    private JFXButton addButton;
 
     public static final String GET_SYNONYM_QUERY = "SELECT sname,scolumn,stable from synonym";
 
@@ -69,11 +82,29 @@ public class DisplaySynonymController implements Initializable {
     }
 
     public void exitBtnAction(ActionEvent actionEvent) {
+        Platform.exit();
+        // close all running application
     }
 
-    public void homeBtnAction(ActionEvent actionEvent) {
+    public void homeBtnAction(ActionEvent actionEvent) throws Exception {
+        homeBtn.getScene().getWindow().hide();
+
+        GotoHome change = new GotoHome();
+        change.HomeSection();
+
+//        Stage dashboardStage = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard.fxml"));
+//        Scene scene = new Scene(root);
+//        dashboardStage.setScene(scene);
+//        dashboardStage.show();
     }
 
-    public void addBtnAction(ActionEvent actionEvent) {
+    public void addBtnAction(ActionEvent actionEvent) throws Exception {
+
+        Stage dashboardStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../views/addSynonym.fxml"));
+//        Scene scene = new Scene(root);
+        dashboardStage.setScene(new Scene(root));
+        dashboardStage.show();
     }
 }

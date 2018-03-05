@@ -37,7 +37,8 @@
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton fx:id="addSynonymButton" layoutX="14.0" layoutY="184.0" onAction="#setAddSynonymButton" prefHeight="49.0" prefWidth="125.0" stylesheets="@../resources/ButtonStyle.css" text="Add">
+      <JFXButton fx:id="addSynonym" layoutX="14.0" layoutY="184.0" onAction="#setAddSynonymButton" prefHeight="49.0"
+                 prefWidth="125.0" stylesheets="@../resources/ButtonStyle.css" text="Add">
          <font>
             <Font size="18.0" />
          </font>

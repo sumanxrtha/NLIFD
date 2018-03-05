@@ -1,5 +1,6 @@
 package controller;
 
+import Application.GotoHome;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSpinner;
@@ -53,14 +54,18 @@ public class LoginController implements Initializable {
             loginButton.getScene().getWindow().hide();
             try {
             spinner.setVisible(true);
-                Stage dashboardStage = new Stage();
-                Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard.fxml"));
-                Scene scene = new Scene(root);
-                dashboardStage.setScene(scene);
-                dashboardStage.setTitle("Home - NLIFD");
-                dashboardStage.show();
-                dashboardStage.setResizable(false);
-            } catch (IOException e) {
+
+                GotoHome mainPage = new GotoHome();
+                mainPage.HomeSection();
+
+//                Stage dashboardStage = new Stage();
+//                Parent root = FXMLLoader.load(getClass().getResource("../views/Dashboard.fxml"));
+//                Scene scene = new Scene(root);
+//                dashboardStage.setScene(scene);
+//                dashboardStage.setTitle("Home - NLIFD");
+//                dashboardStage.show();
+//                dashboardStage.setResizable(false);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 

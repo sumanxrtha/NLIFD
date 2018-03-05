@@ -1,14 +1,11 @@
 package controller;
 
+import Application.ChangeSynFunLayout;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTabPane;
-import com.jfoenix.controls.JFXTogglePane;
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -17,8 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class DashboardController {
 
@@ -29,20 +24,16 @@ public class DashboardController {
     private JFXButton logoutBtn;
     @FXML
     private Label l;
-
     @FXML
+
 //    private JFXTogglePane queryGeneration;
 //    private JFXButton openButton
     private AnchorPane queryGeneration, addFunctions, viewFunctions, addSynonyms, viewSynonyms;
+    ChangeSynFunLayout changeLayout = new ChangeSynFunLayout();
 
-
+    // creating object of ChangeSynFunLayout Class to class from dashboard
     public void addFunctionsAction(MouseEvent mouseEvent) throws IOException {
-        Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../views/addFunction.fxml"));
-        Scene scene = new Scene(root);
-        dashboardStage.setScene(scene);
-        dashboardStage.setTitle("Add Functions");
-        dashboardStage.show();
+        changeLayout.ChangeFun();
     }
 
     public void viewFunctionsAction(MouseEvent mouseEvent) throws IOException {
@@ -72,16 +63,11 @@ public class DashboardController {
     }
 
     public void addSynonymsAction(MouseEvent mouseEvent) throws IOException {
-        Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../views/addSynonym.fxml"));
-        Scene scene = new Scene(root);
-        dashboardStage.setScene(scene);
-        dashboardStage.setTitle("Add Synonym");
-        dashboardStage.show();
+        changeLayout.ChangeSyn();
     }
 
 
-    public void viewSynonymsAction(MouseEvent mouseEvent) throws IOException {
+    public void viewSynonymsAction(MouseEvent mouseEvent) throws Exception {
 
         viewSynonyms.getScene().getWindow().hide();
         Stage dashboardStage = new Stage();
