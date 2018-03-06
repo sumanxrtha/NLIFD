@@ -55,8 +55,8 @@ public class addFunctionController implements Initializable {
             alert.setContentText(null);
             alert.setTitle("function insertion done");
             alert.show();
-
-            Platform.exit(); // close scene only when message popup
+            fName.setText("");
+            fOperator.setText("");
 
         } else {
             Alert falert = new Alert(Alert.AlertType.WARNING);
@@ -67,8 +67,6 @@ public class addFunctionController implements Initializable {
             fName.setText("");
             fOperator.setText("");
         }
-
-//        Platform.exit();
 
     }
 

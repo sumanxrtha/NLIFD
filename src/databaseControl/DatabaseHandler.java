@@ -6,7 +6,7 @@ import java.sql.*;
 public class DatabaseHandler {
 
     public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DB_NAME = "finalproject";
+    public static final String DB_NAME = "majorproject";
     public static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
     public static final String DB_USER = "root";
     public static final String DB_PASS = "sujan";
@@ -61,7 +61,7 @@ public class DatabaseHandler {
     public static boolean CheckLoginUser(String uname, String pass) {
         Connection connection = GetDatabaseConnection();
 //        String checkQuery = "select * from registeredUser where user = ' "+uname+" ' and pass = ' "+pass+" ' ";
-        final String checkQuery = "select *from registeredUser where user = ? and pass = ? ";
+        final String checkQuery = "select *from validuser where user = ? and pass = ? ";
         PreparedStatement preparedStatement;
         boolean status = false; //initially false
 

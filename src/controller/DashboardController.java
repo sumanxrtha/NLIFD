@@ -19,7 +19,6 @@ public class DashboardController {
 
     @FXML
     private JFXButton exitBtn;
-
     @FXML
     private JFXButton logoutBtn;
     @FXML

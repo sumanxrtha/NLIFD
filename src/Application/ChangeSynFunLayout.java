@@ -20,7 +20,6 @@ public class ChangeSynFunLayout {
     }
 
     public void ChangeSyn() throws IOException {
-
         Stage dashboardStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../views/addSynonym.fxml"));
         Scene scene = new Scene(root);

@@ -11,26 +11,23 @@ public class DBOperation {
      * */
 
     public static boolean insert(String tableName, String field1, String field2, String field3) {
-
-        Connection connection = DatabaseHandler.GetDatabaseConnection();
         boolean status = false;
+        Connection connection = DatabaseHandler.GetDatabaseConnection();
 //        Statement statement = null;
         PreparedStatement preparedStatement = null;
-//        final String insertQuery = "Insert into "+tableName+" values ("+value+ ")"; // bad way
+//        final String insertQuery = "Insert into "+tableName+" values ("+value+ ")";
 
         try {
-            preparedStatement = connection.prepareStatement("INSERT into ? VALUES (?,?,?)");
-//            preparedStatement.executeUpdate();
-//            statement = connection.createStatement();
-
-            preparedStatement.setString(1, tableName);
-            preparedStatement.setString(2, field1);
-            preparedStatement.setString(3, field2);
-            preparedStatement.setString(4, field3);
-
-            status = preparedStatement.execute();
-            preparedStatement.close();
-
+            preparedStatement = connection.prepareStatement("INSERT into " + tableName + " VALUES (?,?,?)");
+//            preparedStatement.setString(1, tableName);
+            preparedStatement.setString(1, field1);
+            preparedStatement.setString(2, field2);
+            preparedStatement.setString(3, field3);
+            int i = preparedStatement.executeUpdate();
+            if (i != 0) {
+                status = true;
+            }
+//            preparedStatement.close();
             // checking incoming content for database
             System.out.println(tableName + " and " + field1 + " and " + field2 + " and " + field3);
 
@@ -38,7 +35,6 @@ public class DBOperation {
             e.printStackTrace();
         }
         return status;
-
     }
 
     public static boolean update(String table, String mode, String column) {

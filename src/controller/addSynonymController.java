@@ -7,6 +7,7 @@ import databaseControl.DatabaseHandler;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+
 import java.awt.event.ActionEvent;
 
 public class addSynonymController {
@@ -25,7 +26,15 @@ public class addSynonymController {
     private JFXButton resetButton;
 
 
-    public void setAddSynonymButton(ActionEvent actionEvent) {
+    public void setResetButton(javafx.event.ActionEvent actionEvent) {
+
+        synonymColumn.setText("");
+        columnName.setText("");
+        tableName.setText("");
+    }
+
+    public void setAddSynonymButton(javafx.event.ActionEvent actionEvent) {
+
 
 //        addSynonym.getScene().getWindow().show();
 
@@ -36,8 +45,7 @@ public class addSynonymController {
         // sabai value lai synonym database ko form ma raakney !!
 //        String getAll = "'"+sColumnName+ " '";
 
-        if (DBOperation.insert("synonym (sname, scolumn, stable)", sColumnName, cName, tName)) {
-//            addSynonym.getScene().getWindow().isShowing();
+        if (DBOperation.insert("synonym", sColumnName, cName, tName)) {
 
 //            System.out.println("done")
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -46,10 +54,7 @@ public class addSynonymController {
             alert.setTitle("database insertion done");
             alert.show();
 
-            Platform.exit();
-
-        }
-        else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("All field are required");
             alert.setTitle("Empty");
@@ -60,16 +65,5 @@ public class addSynonymController {
             columnName.setText("");
         }
 
-    }
-
-
-    public void setResetButton(javafx.event.ActionEvent actionEvent) {
-
-        synonymColumn.setText("");
-        columnName.setText("");
-        tableName.setText("");
-    }
-
-    public void setAddSynonymButton(javafx.event.ActionEvent actionEvent) {
     }
 }

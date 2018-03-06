@@ -8,7 +8,6 @@ public class DivideList {
     public static ArrayList<String> whereList; // for where clause
     public static ArrayList<String> selectList; // for select clause
 
-
     // processed arraylist and divide them into two list
     public static ArrayList<String> PopulateList(ArrayList<String> processedList) {
 

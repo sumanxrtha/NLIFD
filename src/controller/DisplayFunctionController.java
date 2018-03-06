@@ -1,5 +1,6 @@
 package controller;
 
+import Application.ChangeSynFunLayout;
 import Application.Function;
 import Application.GotoHome;
 import com.jfoenix.controls.JFXButton;
@@ -104,10 +105,13 @@ public class DisplayFunctionController implements Initializable {
 
     public void addBtnAction(ActionEvent actionEvent) throws Exception {
 
-        Stage dashboardStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../views/addFunction.fxml"));
-//        Scene scene = new Scene(root);
-        dashboardStage.setScene(new Scene(root));
-        dashboardStage.show();
+//        Stage dashboardStage = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("../views/addFunction.fxml"));
+////        Scene scene = new Scene(root);
+//        dashboardStage.setScene(new Scene(root));
+//        dashboardStage.show();
+        ChangeSynFunLayout changeFun = new ChangeSynFunLayout();
+        changeFun.ChangeFun();
+
     }
 }
