@@ -6,8 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Collection;
-
 public class Main extends Application {
 
     @Override
@@ -21,6 +19,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        System.out.println();
         launch(args);
     }
 }

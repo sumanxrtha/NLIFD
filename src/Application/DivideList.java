@@ -43,14 +43,13 @@ public class DivideList {
         return processedList;
     }
 
-    // split functions
+    // split functions (regular expression use garney yeha)
     public static String[] Split(String s, String splitter) {
         String[] split = s.split("\\" + splitter);
         return split;
-
     }
 
-    // returns governor and dependents
+    // returns governor and dependents ====>  relation(gov,dep) format ma hunxa !!
     public static String[] GetGovDep(String string) {
         String[] GovDep = new String[2];
         // divide the string into governor and dependents

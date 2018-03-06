@@ -91,15 +91,21 @@ public class LoginController implements Initializable {
         spinner.setVisible(false);
     }
 
+    public void SignUpAccount(ActionEvent actionEvent) throws IOException {
+        loginButton.getScene().getWindow().hide();
+        Stage dashboardStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../views/Register.fxml"));
+        Scene scene = new Scene(root);
+        dashboardStage.setScene(scene);
+        dashboardStage.setTitle("Acount Registration");
+        dashboardStage.show();
+        dashboardStage.setResizable(false);
+    }
+
 //    public void homeScreen() throws IOException {
 //
 //        loginButton.getScene().getWindow().hide();
-//        Stage dashboardStage = new Stage();
-//        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-//        Scene scene = new Scene(root);
-//        dashboardStage.setScene(scene);
-//        dashboardStage.setTitle("Home | Natural Language Interface For Database");
-//        dashboardStage.show();
+//
 //
 //    }
 

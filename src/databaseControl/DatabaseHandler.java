@@ -90,4 +90,23 @@ public class DatabaseHandler {
 //        connection.close();
     }
 
+    public static boolean registerAccount(String username, String password) {
+        Connection connection = GetDatabaseConnection();
+        PreparedStatement ps = null;
+        boolean status = false;
+        try {
+            ps = connection.prepareStatement("INSERT into validuser(user, pass) VALUES(?,?);");
+            ps.setString(1, username);
+            ps.setString(2, password);
+            int i = ps.executeUpdate();
+            if (i == 1) {
+                status = true;
+            }
+            ps.close();
+            System.out.println(ps);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return status;
+    }
 }

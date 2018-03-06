@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.68"
+            prefHeight="471.0" prefWidth="755.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+    <children>
+        <ImageView fitHeight="473.0" fitWidth="755.0" layoutX="-1.0" layoutY="-2.0" opacity="0.67" pickOnBounds="true">
+            <image>
+                <Image url="@../resources/2.jpeg"/>
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="46.0" layoutY="107.0" prefHeight="330.0" prefWidth="661.0"
+                    style="-fx-background-color: rgb(255, 255, 255); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 3;">
+            <children>
+                <JFXTextField fx:id="fullname" labelFloat="true" layoutX="39.0" layoutY="95.0" maxWidth="248.0"
+                              minWidth="216.0" prefHeight="35.0" prefWidth="248.0" promptText="Full Name">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="email" labelFloat="true" layoutX="39.0" layoutY="157.0" maxWidth="248.0"
+                              minWidth="216.0" prefHeight="39.0" prefWidth="248.0" promptText="Email">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXTextField>
+                <Label layoutX="225.0" layoutY="22.0" prefHeight="40.0" prefWidth="211.0" text="Register Account"
+                       textAlignment="CENTER" textFill="#a43d3d" textOverrun="CENTER_ELLIPSIS">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+                <JFXButton fx:id="registerbtn" buttonType="RAISED" layoutX="171.0" layoutY="236.0"
+                           mnemonicParsing="false" onAction="#setRegisterBtn" onInputMethodTextChanged="#setLoginButton"
+                           onKeyPressed="#setLoginButton" prefHeight="39.0" prefWidth="112.0"
+                           style="-fx-background-color: #00718A; -fx-background-radius: 5;" text="Register"
+                           textFill="WHITE">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXPasswordField fx:id="password" labelFloat="true" layoutX="353.0" layoutY="157.0" maxWidth="248.0"
+                                  minWidth="216.0" prefHeight="39.0" prefWidth="248.0" promptText="Password">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXPasswordField>
+                <JFXTextField fx:id="username" labelFloat="true" layoutX="353.0" layoutY="95.0" maxWidth="248.0"
+                              minWidth="216.0" prefHeight="35.0" prefWidth="248.0" promptText="Username">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXButton fx:id="loginButton" buttonType="RAISED" layoutX="405.0" layoutY="236.0"
+                           mnemonicParsing="false" onAction="#setLoginButton" onInputMethodTextChanged="#setLoginButton"
+                           onKeyPressed="#setLoginButton" prefHeight="39.0" prefWidth="93.0"
+                           style="-fx-background-color: #00718A; -fx-background-radius: 5;" text="Login"
+                           textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="exitButton" layoutX="526.0" layoutY="238.0" onAction="#exitBtnAction"
+                           prefHeight="36.0" prefWidth="93.0" style="-fx-background-color: green;" text="Exit"
+                           textFill="WHITE">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </JFXButton>
+                <JFXSpinner fx:id="sp" layoutX="293.0" layoutY="240.0"/>
+            </children>
+        </AnchorPane>
+        <Label layoutX="31.0" layoutY="21.0" lineSpacing="0.1" text="Natural Language Interface For Database"
+               textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="Georgia" size="38.0"/>
+            </font>
+        </Label>
+        <Separator layoutX="122.0" layoutY="74.0" prefHeight="11.0" prefWidth="509.0"/>
+    </children>
+</AnchorPane>
