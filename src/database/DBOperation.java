@@ -1,4 +1,4 @@
-package databaseControl;
+package database;
 
 import java.sql.*;
 

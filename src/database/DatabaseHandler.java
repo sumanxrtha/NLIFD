@@ -1,16 +1,9 @@
-package databaseControl;
+package database;
 
 import javafx.scene.control.Alert;
 import java.sql.*;
 
 public class DatabaseHandler {
-
-    public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DB_NAME = "majorproject";
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
-    public static final String DB_USER = "root";
-    public static final String DB_PASS = "sujan";
-
 //    public static final String LOGIN_USER_CHECK_QUERY = "select *from registeredUser where user = ? and pass = ?";
 
     public static Connection GetDatabaseConnection() {
@@ -20,8 +13,8 @@ public class DatabaseHandler {
         try {
 //            driver setup for database
 //            Class.forName("com.mysql.jdbc.Driver");
-            Class.forName(DB_DRIVER);
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            Class.forName(Util.DB_DRIVER);
+            connection = DriverManager.getConnection(Util.DB_URL, Util.DB_USER, Util.DB_PASS);
 
 //            System.out.println("connection successful");
 
@@ -61,7 +54,7 @@ public class DatabaseHandler {
     public static boolean CheckLoginUser(String uname, String pass) {
         Connection connection = GetDatabaseConnection();
 //        String checkQuery = "select * from registeredUser where user = ' "+uname+" ' and pass = ' "+pass+" ' ";
-        final String checkQuery = "select *from validuser where user = ? and pass = ? ";
+        final String checkQuery = "select *from " +Util.USER_TABLE + " where " +Util.USERNAME + " = ? and " +Util.PASSWORD + " = ?";
         PreparedStatement preparedStatement;
         boolean status = false; //initially false
 
@@ -98,12 +91,13 @@ public class DatabaseHandler {
             ps = connection.prepareStatement("INSERT into validuser(user, pass) VALUES(?,?);");
             ps.setString(1, username);
             ps.setString(2, password);
+//            status = ps.execute();
             int i = ps.executeUpdate();
             if (i == 1) {
                 status = true;
             }
             ps.close();
-            System.out.println(ps);
+//            System.out.println(ps);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

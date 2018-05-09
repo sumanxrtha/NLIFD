@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +19,10 @@ public class HelperClass {
 
             if (part[0].equals("det")) {
 
-            } else if (part[0].equals("attr")) {
+            } else if (part[0].equals("case")) {
+
+            }
+            else if (part[0].equals("attr")) {
 
             } else {
                 filteredList.add((((List) coll).get(i).toString()));

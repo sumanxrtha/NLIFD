@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 public class Function {
     private String functionName;

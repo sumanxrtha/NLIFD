@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/newarbhai/mysql-connector-java-5.1.43-bin.jar"/>
+	<classpathentry kind="lib" path="/home/newarbhai/jfoenix.jar"/>
+	<classpathentry kind="lib" path="/home/newarbhai/stanford-API/stanford-corenlp-3.8.0-models.jar"/>
+	<classpathentry kind="lib" path="/home/newarbhai/stanford-API/stanford-corenlp-3.8.0.jar"/>
+	<classpathentry kind="output" path="out/production/NLIFD"/>
+</classpath>

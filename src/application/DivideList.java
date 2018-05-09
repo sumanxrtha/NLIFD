@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,7 +26,6 @@ public class DivideList {
             Iterator<String> it = processedList.iterator();
             while (it.hasNext()) {
                 String[] split = Split(it.next(), "(");
-
                 // rule 1
                 if (split[0].equals("root")) {
                     String[] temp = GetGovDep(split[1]);
@@ -34,8 +33,13 @@ public class DivideList {
                     hasRooj = true;
                     it.remove();
                 }
-
                 //rule 2
+                else if (split[0].equals("nsubj")) {
+                    hasSubj = true;
+                    String[] temp = GetGovDep(split[1]);
+                    selectList.add(temp[1].trim());
+                    it.remove();
+                }
             }
         }
 
@@ -65,6 +69,5 @@ public class DivideList {
 
         return GovDep;
     }
-
 
 }

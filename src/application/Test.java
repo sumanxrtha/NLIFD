@@ -1,10 +1,4 @@
-package Application;
-
-import com.mysql.jdbc.SocketMetadata;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+package application;
 
 public class Test {
     public static void main(String[] args) {
