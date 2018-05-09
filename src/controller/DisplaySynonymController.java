@@ -1,23 +1,19 @@
 package controller;
 
-import Application.ChangeSynFunLayout;
-import Application.GotoHome;
-import Application.Synonym;
+import application.ChangeSynFunLayout;
+import application.GotoHome;
+import application.Synonym;
 import com.jfoenix.controls.JFXButton;
-import databaseControl.DatabaseHandler;
+import database.DatabaseHandler;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;

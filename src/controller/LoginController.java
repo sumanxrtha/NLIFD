@@ -1,11 +1,11 @@
 package controller;
 
-import Application.GotoHome;
+import application.GotoHome;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
-import databaseControl.DatabaseHandler;
+import database.DatabaseHandler;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

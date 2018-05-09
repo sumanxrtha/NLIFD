@@ -2,13 +2,9 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import databaseControl.DBOperation;
-import databaseControl.DatabaseHandler;
-import javafx.application.Platform;
+import database.DBOperation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-
-import java.awt.event.ActionEvent;
 
 public class addSynonymController {
 

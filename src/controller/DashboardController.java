@@ -1,6 +1,6 @@
 package controller;
 
-import Application.ChangeSynFunLayout;
+import application.ChangeSynFunLayout;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

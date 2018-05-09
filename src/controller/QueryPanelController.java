@@ -1,6 +1,6 @@
 package controller;
 
-import Application.DependencyParserAPI;
+import application.DependencyParserAPI;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;

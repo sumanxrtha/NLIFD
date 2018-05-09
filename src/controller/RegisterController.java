@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
-import databaseControl.DatabaseHandler;
+import database.DatabaseHandler;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -72,15 +72,14 @@ public class RegisterController implements Initializable {
         String pass = password.getText();
 
         if (DatabaseHandler.registerAccount(user, pass)) {
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Registration Completed");
-            alert.setHeaderText("Goto Login secton and enter your information.");
-            alert.setContentText(null);
-            alert.show();
-
-            registerbtn.getScene().getWindow().hide();
             try {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration Completed");
+                alert.setHeaderText("Goto Login secton and enter your information.");
+                alert.setContentText(null);
+                alert.show();
+
+                registerbtn.getScene().getWindow().hide();
                 sp.setVisible(true);
                 gotoLoginPage();
             } catch (IOException e) {
