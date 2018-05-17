@@ -1,5 +1,7 @@
 package database;
 
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +9,60 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class QueryParser {
+
+    public static ArrayList<String> ListMatchedStems(String stem) {
+        ArrayList<String> matchItem = new ArrayList<String>();
+        Connection conn = DatabaseHandler.GetDatabaseConnection();
+        String query = "Select table_name, column_name from information_schema.columns " +
+                " where column_name like '%" +stem.trim() +"%'" + " and table_schema='finalproject'";
+        System.out.println("This is my query: " +query);
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String table = resultSet.getString("table_name");
+                String tableCol = resultSet.getString("column_name");
+                matchItem.add(table);
+                matchItem.add(tableCol);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return matchItem;
+    }
+
+    public static boolean CheckStatus(String table, String col) {
+        boolean status = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int count = 0;
+        // check if synonym exists
+        ArrayList<String> temp = QueryParser.GetSynonyms(col);
+        if (temp.size()>0) {
+            table = temp.get(0);
+            col = temp.get(1);
+        }
+
+        Connection connection = DatabaseHandler.GetDatabaseConnection();
+        String query = "select count(*) from information_schema.columns where column_name like '%"
+                + col.trim()+"%'" + " and table_name like '%" +table.trim()+"%'"
+                + " and table_schema = 'finalproject'";
+        try {
+            ps = connection.prepareCall(query);
+            rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt(1);
+            if (count>0)
+                status =true;
+        } catch (SQLException e) {
+            status = false;
+            e.printStackTrace();
+        }
+        return status;
+    }
+
 
     public static ArrayList<String> GetSynonyms(String col) {
         ArrayList<String> temp = new ArrayList<String>();

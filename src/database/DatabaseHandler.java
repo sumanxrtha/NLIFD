@@ -88,6 +88,7 @@ public class DatabaseHandler {
         PreparedStatement ps = null;
         boolean status = false;
         try {
+            // database table name should be validuser
             ps = connection.prepareStatement("INSERT into validuser(user, pass) VALUES(?,?);");
             ps.setString(1, username);
             ps.setString(2, password);

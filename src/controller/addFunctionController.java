@@ -39,8 +39,8 @@ public class addFunctionController implements Initializable {
 
         System.out.println(typeOption);
 
-        // sabai value lai database ko form ma raakney !! ie function table ma raakhey
-
+        // sabai value lai database ko form ma raakney !! ie 'function' table ma raakhey
+// final means constant in java
         final String DB_FUNCTION_TABLE = "function (fname,foperator,ftype)";  //function table in database
 
         if (DBOperation.insert(DB_FUNCTION_TABLE, fNameInput, fOperatorInput, typeOption)) {

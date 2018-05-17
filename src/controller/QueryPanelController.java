@@ -35,7 +35,8 @@ public class QueryPanelController implements Initializable {
     private String question;
 
     public void executeAction(ActionEvent actionEvent) {
-        question = inputQuery.getText();
+        question = inputQuery.getText(); // getting input from users
+
         if (question.equals("")) {
 //            System.out.println("don't empty");
             progress.setVisible(false);
@@ -59,8 +60,8 @@ public class QueryPanelController implements Initializable {
         System.out.println(question);
 
         // sending question to dependency parser api to genearte world list using stanford api
-//        DependencyParserAPI.DependencyGeneration(question);
-
+        DependencyParserAPI.DependencyGeneration(question);
+        // output after dependency parser
         System.out.println(DependencyParserAPI.DependencyGeneration(question));
 
     }

@@ -1,6 +1,9 @@
 package application;
 
+import sun.plugin.javascript.navig.Array;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class DivideList {
@@ -17,7 +20,7 @@ public class DivideList {
         whereList = new ArrayList<>();
 
         // flag to test if root exists or not
-        boolean hasRooj = false;
+        boolean hasRoot = false;
         boolean hasSubj = false;
         int i = 0;
 
@@ -26,20 +29,68 @@ public class DivideList {
             Iterator<String> it = processedList.iterator();
             while (it.hasNext()) {
                 String[] split = Split(it.next(), "(");
+
                 // rule 1
                 if (split[0].equals("root")) {
                     String[] temp = GetGovDep(split[1]);
                     whereList.add(temp[1].trim());
-                    hasRooj = true;
+                    hasRoot = true;
                     it.remove();
                 }
+
                 //rule 2
                 else if (split[0].equals("nsubj")) {
                     hasSubj = true;
                     String[] temp = GetGovDep(split[1]);
-                    selectList.add(temp[1].trim());
-                    it.remove();
+
+                    // sub rule
+                    // 2.1
+                    if (HasElement(whereList, temp[0].trim())) {
+                        selectList.add(temp[1].trim());
+                        it.remove();
+                    }
+
+
+                    // sub RUle for 2,
+                    // 2.1 rule
+                    // hasRoot flag lai check nagareko,
+                    else if(!HasElement(whereList, temp[0].trim())  && hasRoot==false) {
+
+                        whereList.add(temp[0].trim());
+                        selectList.add(temp[1].trim());
+
+                        it.remove();
+                    }
+
+                    // sub rule 3
+                    // 2.3
+                    else {
+                        // just do nothing
+                    }
+
                 }
+
+                // rule no 3
+                else if (split[0].startsWith("prep") || split[0].endsWith("obj")) {
+                    String[] temp = GetGovDep(split[1].trim());
+
+                    // sub rule for 3
+                    // 3.1
+                    // this step is for aggregation from database if exists on database
+
+                    // pending.......
+                    if (true) {
+
+                    }
+
+                    // sub rule for 3
+                    // 3.2
+
+
+                }
+
+
+
             }
         }
 
@@ -49,6 +100,7 @@ public class DivideList {
 
     // split functions (regular expression use garney yeha)
     public static String[] Split(String s, String splitter) {
+        // regex exp.
         String[] split = s.split("\\" + splitter);
         return split;
     }
@@ -69,5 +121,14 @@ public class DivideList {
 
         return GovDep;
     }
+
+    public static boolean HasElement(ArrayList<String> list, String value) {
+        boolean status = false;
+        if (list.contains(value)) {
+            status = true;
+        }
+        return status;
+    }
+
 
 }

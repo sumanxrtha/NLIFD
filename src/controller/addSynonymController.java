@@ -34,14 +34,16 @@ public class addSynonymController {
 
 //        addSynonym.getScene().getWindow().show();
 
-        String sColumnName = synonymColumn.getText();
-        String tName = tableName.getText();
-        String cName = columnName.getText();
+        String syName = synonymColumn.getText();
+        String syTable = tableName.getText();
+        String syColumn = columnName.getText();
+
+        final String SYNONYM_DB_TABLE = "synonym (syname, sycolumn,sytable) ";
 
         // sabai value lai synonym database ko form ma raakney !!
 //        String getAll = "'"+sColumnName+ " '";
 
-        if (DBOperation.insert("synonym", sColumnName, cName, tName)) {
+        if (DBOperation.insert(SYNONYM_DB_TABLE, syName, syColumn, syTable)) {
 
 //            System.out.println("done")
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

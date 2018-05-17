@@ -7,10 +7,10 @@ import java.util.List;
 //filer the unwanted noise from the collection
 public class HelperClass {
 
-    //    @SuppressWarnings({"rawtypes"})
+        @SuppressWarnings({"rawtypes"})
     public static ArrayList<String> WordListFilter(Collection coll) {
 
-        ArrayList<String> filteredList = new ArrayList<>();
+        ArrayList<String> processedList = new ArrayList<>();
 
         for (int i = 0; i < coll.size(); i++) {
 
@@ -18,17 +18,21 @@ public class HelperClass {
             String[] part = (((List) coll).get(i).toString().split("\\("));
 
             if (part[0].equals("det")) {
-
-            } else if (part[0].equals("case")) {
-
             }
             else if (part[0].equals("attr")) {
 
             } else {
-                filteredList.add((((List) coll).get(i).toString()));
+                processedList.add((((List) coll).get(i).toString()));
             }
 
         }
-        return filteredList;
+        return processedList;
+    }
+
+    public static boolean forNumberic(String numm) {
+        // checking number value
+        boolean status = false;
+        // regex expression chainyo feri
+        return status; // false, ahile ko laagi
     }
 }
