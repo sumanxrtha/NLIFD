@@ -2,6 +2,7 @@ package controller;
 
 import application.DependencyParserAPI;
 
+import application.HelperClass;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.JFXTextField;
@@ -18,6 +19,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class QueryPanelController implements Initializable {
@@ -63,6 +65,8 @@ public class QueryPanelController implements Initializable {
         DependencyParserAPI.DependencyGeneration(question);
         // output after dependency parser
         System.out.println(DependencyParserAPI.DependencyGeneration(question));
+        System.out.println("========================================");
+        System.out.println(HelperClass.WordListFilter(DependencyParserAPI.DependencyGeneration(question)));
 
     }
 

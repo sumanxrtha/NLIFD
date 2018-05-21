@@ -19,6 +19,8 @@ public class HelperClass {
 
             if (part[0].equals("det")) {
             }
+//            else if (part[0].equals("nsubj")) {
+//            }
             else if (part[0].equals("attr")) {
 
             } else {
