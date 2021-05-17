@@ -3,7 +3,10 @@ package NLIFD;
 import application.DependencyParserAPI;
 import application.DivideList;
 import application.HelperClass;
+import application.QueryGeneration;
+import database.QueryParser;
 
+import javax.management.Query;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,7 +29,7 @@ public class DemoTest {
         // type casting ie converting to LIST form.
         List lists = (List) collection;
         System.out.println("==========================================================");
-        System.out.println("Dependency from Parser | Actual Dependencies of the question");
+        System.out.println("Dependency from Parser sq| Actual Dependencies of the question");
         System.out.println("==========================================================");
 
         for (int i=0; i<lists.size(); i++) {
@@ -47,6 +50,7 @@ public class DemoTest {
 
         // separating the conents from the lists into where and select clause
         DivideList.PopulateList(filteredList); // all rules are applied here.
+
         System.out.println("==========================================================");
         int selectSize = DivideList.selectList.size();
         int whereSize = DivideList.whereList.size();
@@ -64,8 +68,30 @@ public class DemoTest {
         }
 
         System.out.println("==============================================");
-        // done and combine these two combination.
-        // pending;
+        // done and, now combine these two combination.
+
+        QueryGeneration.GetAllQuery();
+
+
+        // this code is for displaying resultant output in table form
+        String text = QueryGeneration.generateSelectString()+"\n";
+        text += QueryGeneration.generateFromString()+"\n";
+        text += QueryGeneration.generateWhereString();
+
+        String[] heading = new String[QueryGeneration.select.size()];
+        QueryGeneration.select.toArray(heading);
+
+        ArrayList<ArrayList<String>> test = QueryParser.getQueryResult(text, QueryGeneration.select);
+        Object[][] result = new Object[test.size()][];
+
+        for (int k=0; k<test.size(); k++) {
+            ArrayList<String> temp = test.get(k);
+            result[k] = new Object[test.size()];
+            for (int l=0; l<temp.size(); l++) {
+                result[k][l]  = temp.get(l);
+                System.out.println(temp.get(l));
+            }
+        }
 
     }
 }

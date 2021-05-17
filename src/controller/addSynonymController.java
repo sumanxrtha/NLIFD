@@ -38,7 +38,7 @@ public class addSynonymController {
         String syTable = tableName.getText();
         String syColumn = columnName.getText();
 
-        final String SYNONYM_DB_TABLE = "synonym (syname, sycolumn,sytable) ";
+        final String SYNONYM_DB_TABLE = "synonym (syname, scolumn,stable) ";
 
         // sabai value lai synonym database ko form ma raakney !!
 //        String getAll = "'"+sColumnName+ " '";

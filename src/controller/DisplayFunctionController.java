@@ -32,7 +32,7 @@ public class DisplayFunctionController implements Initializable {
     @FXML
     private JFXButton addButton;
 
-    public static final String GET_FUNCTION_QUERY = "SELECT fname,foperator,ftype from function";
+    public static final String GET_FUNCTION_QUERY = "SELECT fsynonym,foperator,ftype from function_tbl";
 
     Connection con = null;
     PreparedStatement ps = null;
@@ -67,7 +67,7 @@ public class DisplayFunctionController implements Initializable {
             ps = con.prepareStatement(GET_FUNCTION_QUERY);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                fdata.add(new Function(rs.getString("fname"), rs.getString("foperator"), rs.getString("ftype")));
+                fdata.add(new Function(rs.getString("fsynonym"), rs.getString("foperator"), rs.getString("ftype")));
 
             }
         } catch (SQLException sq) {

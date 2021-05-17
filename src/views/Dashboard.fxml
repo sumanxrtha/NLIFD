@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="491.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+<AnchorPane prefHeight="491.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
    <children>
       <AnchorPane fx:id="addFunctions" layoutX="503.0" layoutY="67.0">
          <children>
@@ -23,6 +23,11 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="80.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="96.0" fitWidth="194.0" layoutX="52.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/function.png" />
+                     </image>
+                  </ImageView>
                </children>
                <opaqueInsets>
                   <Insets left="100.0" right="100.0" />
@@ -43,6 +48,11 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="80.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="96.0" fitWidth="194.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/function.png" />
+                     </image>
+                  </ImageView>
                </children>
                <opaqueInsets>
                   <Insets left="100.0" right="100.0" />
@@ -62,9 +72,9 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="77.0" fitWidth="89.0" layoutX="62.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="96.0" fitWidth="85.0" layoutX="57.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Desktop/query.png" />
+                        <Image url="@../resources/queryy.jpg" />
                      </image></ImageView>
                </children>
                <opaqueInsets>
@@ -89,6 +99,11 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="74.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="96.0" fitWidth="194.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/queryy.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>
@@ -106,6 +121,11 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="80.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="96.0" fitWidth="194.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/synonyms.png" />
+                     </image>
+                  </ImageView>
                </children>
                <opaqueInsets>
                   <Insets left="100.0" right="100.0" />
@@ -129,6 +149,11 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="74.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="96.0" fitWidth="194.0" layoutX="52.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/synonymss.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

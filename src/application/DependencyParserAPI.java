@@ -44,7 +44,7 @@ public class DependencyParserAPI {
 
         LexicalizedParser lp = LexicalizedParser.loadModel("edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz");
 
-        lp.setOptionFlags(new String[]{"-maxLength", "500", "-retainTmpSubcategories"});
+        lp.setOptionFlags(new String[] { "-maxLength", "500","-retainTmpSubcategories" });
 
         TokenizerFactory tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
         List wordList = tokenizerFactory.getTokenizer(new StringReader(input)).tokenize();
@@ -52,7 +52,7 @@ public class DependencyParserAPI {
         @SuppressWarnings("unchecked")
         Tree tree = lp.apply(wordList);
 
-        GrammaticalStructure gs = gsf.newGrammaticalStructure((edu.stanford.nlp.trees.Tree) tree);
+        GrammaticalStructure gs = gsf.newGrammaticalStructure(tree);
         Coll = gs.typedDependenciesCollapsed(true);
         //collapsedDependencies
         return Coll; // collections return

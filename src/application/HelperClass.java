@@ -9,26 +9,26 @@ public class HelperClass {
 
         @SuppressWarnings({"rawtypes"})
     public static ArrayList<String> WordListFilter(Collection coll) {
+            ArrayList<String> processedList = new ArrayList<>();
 
-        ArrayList<String> processedList = new ArrayList<>();
+            for(int i = 0; i < coll.size(); i++){
 
-        for (int i = 0; i < coll.size(); i++) {
+                // "\\" is used for escaping the character ( as it is the
+                // reserved symbol used for grouping
+                String[] part = ((List)coll).get(i).toString().split("\\(");
+                //System.out.println(part[0]);
+                if(part[0].equals("det")){
 
-            // / is for escaping the charater (
-            String[] part = (((List) coll).get(i).toString().split("\\("));
+                }
+                else if (part[0].equals("attr")){
 
-            if (part[0].equals("det")) {
+                }
+                else{
+                    processedList.add(((List)coll).get(i).toString());
+                }
             }
-//            else if (part[0].equals("nsubj")) {
-//            }
-            else if (part[0].equals("attr")) {
 
-            } else {
-                processedList.add((((List) coll).get(i).toString()));
-            }
-
-        }
-        return processedList;
+            return processedList;
     }
 
     public static boolean forNumberic(String numm) {

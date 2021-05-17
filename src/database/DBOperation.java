@@ -37,6 +37,9 @@ public class DBOperation {
         return status;
     }
 
+    // for function input
+
+
     public static boolean update(String table, String mode, String column) {
         Connection connection = DatabaseHandler.GetDatabaseConnection();
         boolean status = false;

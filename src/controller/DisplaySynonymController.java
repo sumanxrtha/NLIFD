@@ -32,7 +32,7 @@ public class DisplaySynonymController implements Initializable {
     @FXML
     private JFXButton addButton;
 
-    public static final String GET_SYNONYM_QUERY = "SELECT syname,sycolumn,sytable from synonym";
+    public static final String GET_SYNONYM_QUERY = "SELECT syname,scolumn,stable from synonym";
 
     Connection con = null;
     PreparedStatement ps = null;
@@ -68,7 +68,7 @@ public class DisplaySynonymController implements Initializable {
             ps = con.prepareStatement(GET_SYNONYM_QUERY);
             rs = ps.executeQuery();
             while (rs.next()) {
-                sdata.add(new Synonym(rs.getString("syname"),rs.getString("sycolumn"), rs.getString("sytable")));
+                sdata.add(new Synonym(rs.getString(1),rs.getString(2), rs.getString(3)));
 
             }
         } catch (SQLException sq) {

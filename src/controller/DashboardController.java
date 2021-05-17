@@ -65,7 +65,6 @@ public class DashboardController {
         changeLayout.ChangeSyn();
     }
 
-
     public void viewSynonymsAction(MouseEvent mouseEvent) throws Exception {
 
         viewSynonyms.getScene().getWindow().hide();

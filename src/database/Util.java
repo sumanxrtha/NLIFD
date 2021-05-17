@@ -4,9 +4,9 @@ public class Util {
     // database connection information
     public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     public static final String DB_NAME = "finalproject";
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
     public static final String DB_USER = "root";
-    public static final String DB_PASS = "Sujan-123";
+    public static final String DB_PASS = "sujan";
 
 
     // Users database column details
